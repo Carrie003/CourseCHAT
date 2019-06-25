@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.course_chat">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".DoVocabCheckMain"></activity>
+        <activity android:name=".DoQuizMain" />
+        <activity android:name=".VocabCheckItemHolder" />
+        <activity android:name=".BuildVocabCheck" />
+        <activity android:name=".QuizAccomplished" />
+        <activity android:name=".QuizListViewItemHolder" />
+        <activity android:name=".QuizBank" />
+        <activity android:name=".QuizQuestionListViewItemHolder" />
+        <activity android:name=".ListViewItem" />
+        <activity android:name=".WatchClass" />
+        <activity android:name=".DiscussAboutCourse" />
+        <activity android:name=".DoVocabCheckFunMode" />
+        <activity android:name=".BuildVocabCheckMain" />
+        <activity android:name=".DoQuiz" />
+        <activity android:name=".TeachClass" />
+        <activity android:name=".BuildQuiz" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

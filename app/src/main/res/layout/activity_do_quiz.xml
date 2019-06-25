@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DoQuiz">
+
+    <TextView
+        android:id="@+id/questionText"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="124dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/answerText"
+        android:layout_width="245dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginBottom="68dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/previousQuestionBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/nextQuestionBtn"
+        android:layout_width="145dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="157dp"
+        android:onClick="nextQuestion"
+        android:text="next question"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/previousQuestionBtn"
+        app:layout_constraintTop_toBottomOf="@+id/answerText"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/previousQuestionBtn"
+        android:layout_width="141dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="523dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginBottom="37dp"
+        android:onClick="previousQuestion"
+        android:text="previous question"
+        app:layout_constraintBottom_toTopOf="@+id/quizProgressBar"
+        app:layout_constraintEnd_toStartOf="@+id/nextQuestionBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/quizProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="407dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="93dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/previousQuestionBtn" />
+
+</android.support.constraint.ConstraintLayout>

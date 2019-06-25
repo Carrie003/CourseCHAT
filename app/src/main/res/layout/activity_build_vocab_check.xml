@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BuildVocabCheck">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="446dp"
+        android:layout_height="969dp"
+        android:src="@drawable/buildvocabcheck"
+        tools:layout_editor_absoluteX="-18dp"
+        tools:layout_editor_absoluteY="167dp" />
+
+    <ListView
+        android:id="@+id/vocabCheckListView"
+        android:layout_width="398dp"
+        android:layout_height="453dp"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/addVocabCheckBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addVocabCheck"
+        android:text="Add vocab check"
+        tools:layout_editor_absoluteX="245dp"
+        tools:layout_editor_absoluteY="540dp" />
+
+</android.support.constraint.ConstraintLayout>

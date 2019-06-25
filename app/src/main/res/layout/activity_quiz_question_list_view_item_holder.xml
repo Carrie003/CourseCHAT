@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizQuestionListViewItemHolder">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dp">
+
+        <Spinner
+            android:id="@+id/typeSpinner"
+            android:layout_width="203dp"
+            android:layout_height="33dp"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="85dp" />
+
+
+        <TextView
+            android:id="@+id/qLabel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question " />
+
+        <TextView
+            android:id="@+id/ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/qLabel1" />
+
+        <TextView
+            android:id="@+id/qLabel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question: "
+            android:layout_below="@+id/qLabel1"/>
+
+        <EditText
+            android:id="@+id/question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/qLabel2" />
+
+
+
+
+        <TextView
+            android:id="@+id/aLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qLabel2"
+            android:text="Answer: "/>
+
+        <EditText
+            android:id="@+id/answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/aLabel" />
+
+
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aLabel"
+           />
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/submitButton" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
