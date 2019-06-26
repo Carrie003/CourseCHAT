@@ -4,6 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TeachClass">
+    tools:context=".videotutorial.CreateLessons">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="452dp"
+        android:layout_height="776dp"
+        app:srcCompat="@drawable/teachclassbg"
+        tools:layout_editor_absoluteX="-5dp"
+        tools:layout_editor_absoluteY="271dp" />
+
+    <Button
+        android:id="@+id/selectVideoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select A Video Class"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="39dp" />
+
+    <Button
+        android:id="@+id/uploadVideoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="uploadClass"
+        android:text="Upload class"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="97dp" />
+
+    <Button
+        android:id="@+id/recordClassBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="recordClass"
+        android:text="record class"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="153dp" />
+
+    <VideoView
+        android:id="@+id/tutorialVideoView"
+        android:layout_width="340dp"
+        android:layout_height="259dp"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="226dp" />
 </android.support.constraint.ConstraintLayout>
