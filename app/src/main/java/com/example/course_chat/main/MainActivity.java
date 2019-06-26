@@ -1,4 +1,4 @@
-package com.example.course_chat;
+package com.example.course_chat.main;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,6 +11,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.*;
 import android.widget.Spinner;
+
+import com.example.course_chat.vocabquiz.BuildVocabCheckMain;
+import com.example.course_chat.quiz.DoQuiz;
+
+import com.example.course_chat.quiz.Quiz;
+import com.example.course_chat.quiz.QuizListViewAdapter;
+import com.example.course_chat.quiz.QuizQuestionListViewAdapter;
+import com.example.course_chat.R;
+import com.example.course_chat.vocabquiz.DoVocabCheckFunMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -196,7 +205,7 @@ public int p;
 //
     public void doQuizBtnOnClick(View view){
 
-        Intent intent = new Intent(getApplicationContext(),DoQuiz.class);
+        Intent intent = new Intent(getApplicationContext(), DoQuiz.class);
         startActivity(intent);
     }
 
