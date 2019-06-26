@@ -1,4 +1,4 @@
-package com.example.course_chat;
+package com.example.course_chat.vocabquiz;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.course_chat.R;
 
 import java.util.ArrayList;
 import java.util.List;

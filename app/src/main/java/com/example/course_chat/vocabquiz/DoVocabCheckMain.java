@@ -1,7 +1,9 @@
-package com.example.course_chat;
+package com.example.course_chat.vocabquiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.course_chat.R;
 
 public class DoVocabCheckMain extends AppCompatActivity {
 

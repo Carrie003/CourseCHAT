@@ -1,4 +1,4 @@
-package com.example.course_chat;
+package com.example.course_chat.vocabquiz;
 
 import java.util.ArrayList;
 

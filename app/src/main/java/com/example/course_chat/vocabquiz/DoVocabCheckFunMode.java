@@ -1,4 +1,4 @@
-package com.example.course_chat;
+package com.example.course_chat.vocabquiz;
 
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.*;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.course_chat.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +43,6 @@ public class DoVocabCheckFunMode extends AppCompatActivity {
         colorList = new ArrayList<>();
         nameIndexMap =  new HashMap<>();
         meaningIndexMap =  new HashMap<>();
-
 
     }
 

@@ -1,4 +1,4 @@
-package com.example.course_chat;
+package com.example.course_chat.vocabquiz;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,8 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.course_chat.R;
+
 import java.util.ArrayList;
-import java.util.Random;
 
 public class BuildVocabCheckMain extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
