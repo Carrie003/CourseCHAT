@@ -1,9 +1,10 @@
-package com.example.course_chat;
+package com.example.course_chat.quiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
+
+import com.example.course_chat.R;
 
 public class QuizAccomplished extends AppCompatActivity {
 

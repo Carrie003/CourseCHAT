@@ -1,4 +1,4 @@
-package com.example.course_chat;
+package com.example.course_chat.quiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.course_chat.R;
 
 import java.util.ArrayList;
 import java.util.List;

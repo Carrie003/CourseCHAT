@@ -1,6 +1,6 @@
-package com.example.course_chat;
+package com.example.course_chat.quiz;
 import java.util.ArrayList;
-import java.util.Date;
+
 public class Quiz {
     String user, description, dateCreated;
     Integer difficulty, thumbUp, thumbDown;

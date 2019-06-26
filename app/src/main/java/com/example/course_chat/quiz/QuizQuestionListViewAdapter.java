@@ -1,4 +1,4 @@
-package com.example.course_chat;
+package com.example.course_chat.quiz;
 
 
 import android.content.Context;
@@ -17,11 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.view.View.OnClickListener;
+
+import com.example.course_chat.R;
+
 public class QuizQuestionListViewAdapter extends BaseAdapter {
     Context mContext;
     LayoutInflater inflater;
-//    private List<AnimalNames> animalNamesList;
-//    private ArrayList<AnimalNames> arraylist;
+
     public static  List<QuizQuestion> emptyQuizQuestionCollection;
 
     private ArrayList<QuizQuestion> quizQuestionCollection = new ArrayList<>();
@@ -89,8 +91,6 @@ public class QuizQuestionListViewAdapter extends BaseAdapter {
             holder.answer = view.findViewById(R.id.answer);
             holder.submitButton = view.findViewById(R.id.submitButton);
             holder.addButton = view.findViewById(R.id.addButton);
-
-
             view.setTag(holder);
 
         } else {
@@ -160,7 +160,7 @@ public class QuizQuestionListViewAdapter extends BaseAdapter {
 //    }
 
 
-    // Filter Class
+    // Filter Lesson
 //    public void filter(String charText) {
 //        charText = charText.toLowerCase(Locale.getDefault());
 //
