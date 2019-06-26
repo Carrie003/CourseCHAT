@@ -1,4 +1,4 @@
-package com.example.course_chat.VideoClass;
+package com.example.course_chat.videotutorial;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,12 +10,12 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.example.course_chat.R;
-import com.example.course_chat.VocabCheck.Vocabulary;
+import com.example.course_chat.vocabquiz.Vocabulary;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassListViewAdapter extends BaseAdapter {
+public class LessonListViewAdapter extends BaseAdapter {
 
 
 
@@ -24,24 +24,24 @@ public class ClassListViewAdapter extends BaseAdapter {
     public static List<Vocabulary> emptyClassList;
     private ArrayList<Vocabulary> arraylist;
 
-    public ClassListViewAdapter(Context context, List<Vocabulary> emptyClassList) {
+    public LessonListViewAdapter(Context context, List<Vocabulary> emptyClassList) {
         mContext = context;
 
         this.emptyClassList = emptyClassList;
 
         inflater = LayoutInflater.from(mContext);
         this.arraylist = new ArrayList<>();
-        this.arraylist.addAll(ClassListViewAdapter.emptyClassList);
+        this.arraylist.addAll(LessonListViewAdapter.emptyClassList);
+
 
 
     }
 
     public class ViewHolder {
-        TextView classTitle;
-        VideoView classVideoView;
-        Button watchVideoButton;
-
-
+        TextView lessonTitle;
+        VideoView lessonVideoView;
+        Button watchLessonButton;
+        TextView dateCreated;
     }
 
     @Override
@@ -67,18 +67,20 @@ public class ClassListViewAdapter extends BaseAdapter {
             holder = new ViewHolder();
 
             view = inflater.inflate(R.layout.activity_class_list_view_item_holder, null);
-            holder.classTitle = view.findViewById(R.id.classTitle);
-            holder.classVideoView = view.findViewById(R.id.classVideo);
-            holder.watchVideoButton = view.findViewById(R.id.watchVideo);
+            holder.lessonTitle = view.findViewById(R.id.classTitle);
+            holder.lessonVideoView = view.findViewById(R.id.classVideo);
+            holder.watchLessonButton = view.findViewById(R.id.watchVideo);
 
 
-//            holder.classVideoView.setVideoPath();
+
+            holder.lessonVideoView.setVideoPath("android://");
 
 
             view.setTag(holder);
 
         } else {
             holder = (ViewHolder) view.getTag();
+
         }
 
 
