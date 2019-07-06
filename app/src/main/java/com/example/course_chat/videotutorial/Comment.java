@@ -1,17 +1,27 @@
 package com.example.course_chat.videotutorial;
 
 public class Comment {
+    private String content;
     private String user;
     private String commentsOfComment;
     private Integer thumbUp, thumbDown;
-    private Integer dateCommented;
+    private String dateCommented;
+//    private Integer commentId;
 
-    public Comment(String user, String commentsOfComment, Integer thumbUp, Integer thumbDown, Integer dateCommented){
+    public Comment(String content, String user, String commentsOfComment, Integer thumbUp, Integer thumbDown, String dateCommented){
 
+
+        this.content = content;
         this.user = user;
         this.commentsOfComment = commentsOfComment;
         this.thumbUp = thumbUp;
         this.thumbDown = thumbDown;
+    }
+
+
+
+    public String getContent() {
+        return content;
     }
 
     public String getUser() {
@@ -30,8 +40,16 @@ public class Comment {
         return thumbDown;
     }
 
-    public Integer getDateCommented() {
+    public String getDateCommented() {
         return dateCommented;
+    }
+
+    public void setThumbUp(Integer newThumbUp) {
+        this.thumbUp = newThumbUp;
+    }
+
+    public void setThumbDown(Integer newThumbDown) {
+        this.thumbDown = newThumbDown;
     }
 }
 
