@@ -10,8 +10,12 @@ public class WatchLessonHome extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_watch_class_main);
+        setContentView(R.layout.activity_watch_lesson_home);
     }
+
+
+
+
 
 
 
