@@ -12,16 +12,24 @@ import android.widget.VideoView;
 
 import com.example.course_chat.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Map;
+import java.util.Random;
 
 public class CreateLessons extends AppCompatActivity {
 
 
     private Uri tutorialVideoUri;
     private final int REQUEST_VIDEO_CODE =1;
+    private ArrayList<Lesson> lessons;
 
     private VideoView tutorialVideoView;
     public static ArrayList<Uri> videoUris;
+    private Integer lessonID;
+    public static  Map<Integer, Lesson> IDlessonMap;
+    private ArrayList<Integer> lessonIdCollection;
 
     public CreateLessons(){
         tutorialVideoView  = findViewById(R.id.tutorialVideoView);
@@ -45,6 +53,7 @@ public class CreateLessons extends AppCompatActivity {
         uploadVideoIntent.setAction(Intent.ACTION_GET_CONTENT);
 
         startActivityForResult(uploadVideoIntent, 1);
+
     }
 
     public void recordClass(View view){
@@ -62,6 +71,14 @@ public class CreateLessons extends AppCompatActivity {
                 tutorialVideoUri = data.getData();
                 tutorialVideoView.setVideoURI(tutorialVideoUri);
                 tutorialVideoView.start();
+
+                String pattern = "yyyy-MM-dd";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+                String currentDate = simpleDateFormat.format(new Date());
+                Lesson newLesson = new Lesson(tutorialVideoUri, "", "", 0,0, currentDate, new ArrayList<Comment>());
+                lessons.add(newLesson);
+                IDlessonMap.put(createNewID(),newLesson);
+
                 Toast.makeText(CreateLessons.this, "Video uploaded successfully", Toast.LENGTH_SHORT).show();
             }
             catch (Exception e){
@@ -72,5 +89,15 @@ public class CreateLessons extends AppCompatActivity {
         else{
             Toast.makeText(CreateLessons.this, "You have to select exactly one video to upload", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public Integer createNewID(){
+        Random ran = new Random();
+        Integer newID = ran.nextInt();
+        while(lessonIdCollection.contains(newID)){
+
+            newID = ran.nextInt();
+        }
+        return newID;
     }
 }
