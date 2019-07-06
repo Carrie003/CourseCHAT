@@ -1,6 +1,7 @@
 package com.example.course_chat.videotutorial;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,39 +20,51 @@ public class LessonListViewAdapter extends BaseAdapter {
 
 
 
-    Context mContext;
-    LayoutInflater inflater;
-    public static List<Vocabulary> emptyClassList;
-    private ArrayList<Vocabulary> arraylist;
+    private Context mContext;
+    private LayoutInflater inflater;
+    public static List<Lesson> emptyLessonList;
+    private ArrayList<Lesson> arraylist;
+    public static Integer lessonID;
 
-    public LessonListViewAdapter(Context context, List<Vocabulary> emptyClassList) {
+
+
+
+
+    public LessonListViewAdapter(Context context, List<Lesson> emptyClassList) {
         mContext = context;
 
-        this.emptyClassList = emptyClassList;
+        this.emptyLessonList = emptyClassList;
 
         inflater = LayoutInflater.from(mContext);
         this.arraylist = new ArrayList<>();
-        this.arraylist.addAll(LessonListViewAdapter.emptyClassList);
+        this.arraylist.addAll(emptyLessonList);
 
 
 
     }
 
     public class ViewHolder {
+        TextView idLabel;
+        TextView lessonID;
+        TextView titleLabel;
         TextView lessonTitle;
         VideoView lessonVideoView;
         Button watchLessonButton;
+        TextView dateLabel;
         TextView dateCreated;
+
+
+
     }
 
     @Override
     public int getCount() {
-        return emptyClassList.size();
+        return emptyLessonList.size();
     }
 
     @Override
-    public Vocabulary getItem(int position) {
-        return emptyClassList.get(position);
+    public Lesson getItem(int position) {
+        return emptyLessonList.get(position);
     }
 
     @Override
@@ -66,14 +79,31 @@ public class LessonListViewAdapter extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
 
-            view = inflater.inflate(R.layout.activity_class_list_view_item_holder, null);
-            holder.lessonTitle = view.findViewById(R.id.classTitle);
-            holder.lessonVideoView = view.findViewById(R.id.classVideo);
+            view = inflater.inflate(R.layout.activity_lesson_list_view_item_holder, null);
+            holder.idLabel = view.findViewById(R.id.idLabel);
+            holder.lessonID = view.findViewById(R.id.lessonID);
+            holder.titleLabel = view.findViewById(R.id.titleLabel);
+            holder.lessonTitle = view.findViewById(R.id.lessonTitle);
+            holder.lessonVideoView = view.findViewById(R.id.lessonVideo);
             holder.watchLessonButton = view.findViewById(R.id.watchVideo);
+            holder.dateLabel = view.findViewById(R.id.dateLabel);
+            holder.dateCreated = view.findViewById(R.id.dateCreated);
+
+//            holder.lessonVideoView.setVideoURI();
 
 
 
-            holder.lessonVideoView.setVideoPath("android://");
+                holder.watchLessonButton.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        lessonID = Integer.parseInt(holder.lessonID.getText().toString());
+                        Intent watchLessonIntent = new Intent(mContext.getApplicationContext(),WatchLesson.class);
+                        mContext.startActivity(watchLessonIntent);
+
+                    }
+                });
 
 
             view.setTag(holder);
@@ -85,7 +115,13 @@ public class LessonListViewAdapter extends BaseAdapter {
 
 
 
+
+
         return view;
+    }
+
+    public void filter(){
+
     }
 
 
