@@ -166,6 +166,8 @@ public class DiscussionListViewAdapter extends BaseAdapter {
 //       });
 
 
+
+
         holder.thumbUpImage.setOnClickListener(new View.OnClickListener()
         {
             @Override
