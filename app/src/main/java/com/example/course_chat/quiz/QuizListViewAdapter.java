@@ -42,10 +42,10 @@ public class QuizListViewAdapter extends BaseAdapter {
             TextView title;
             TextView description;
             TextView date;
-            ImageView thumbsUp;
+            ImageView thumbUpImage;
             TextView thumbsUpValue;
             TextView space, space2;
-            ImageView thumbsDown;
+            ImageView thumbDownImage;
             TextView thumbsDownValue;
             TextView dateLabel;
 //            TextView ID;
@@ -76,32 +76,32 @@ public class QuizListViewAdapter extends BaseAdapter {
                 holder.title =  view.findViewById(R.id.title);
                 holder.description =  view.findViewById(R.id.description);
                 holder.date = view.findViewById(R.id.date);
-                holder.thumbsUp = view.findViewById(R.id.thumbsUp);
+                holder.thumbUpImage = view.findViewById(R.id.thumbsUp);
                 holder.thumbsUpValue = view.findViewById(R.id.thumbsUpValue);
                 holder.space = view.findViewById(R.id.space);
-                holder.thumbsDown = view.findViewById(R.id.thumbsDown);
+                holder.thumbDownImage = view.findViewById(R.id.thumbsDown);
                 holder.thumbsDownValue = view.findViewById(R.id.thumbsDownValue);
                 holder.space2= view.findViewById(R.id.space2);
                 holder.dateLabel= view.findViewById(R.id.dateLabel);
 //                holder.doQuizButton = view.findViewById(R.id.doQuizButton);
 
                 holder.date.setText(quizList.get(position).getDateCreated());
-                holder.thumbsUp.setImageResource(R.drawable.thumbup);
-                holder.thumbsDown.setImageResource(R.drawable.thumbdown);
+                holder.thumbUpImage.setImageResource(R.drawable.thumbup);
+                holder.thumbDownImage.setImageResource(R.drawable.thumbdown);
                 holder.description.setText(quizList.get(position).getDescription());
                 holder.thumbsUpValue.setText(quizList.get(position).getThumbUp().toString());
                 holder.thumbsDownValue.setText(quizList.get(position).getThumbDown().toString());
-                holder.thumbsUp.getLayoutParams().height = 50;
-                holder.thumbsUp.getLayoutParams().width  = 50;
-                holder.thumbsDown.getLayoutParams().height = 50;
-                holder.thumbsDown.getLayoutParams().width  = 50;
+                holder.thumbUpImage.getLayoutParams().height = 50;
+                holder.thumbUpImage.getLayoutParams().width  = 50;
+                holder.thumbDownImage.getLayoutParams().height = 50;
+                holder.thumbDownImage.getLayoutParams().width  = 50;
 
                 currentPosition = position;
                 currentHolder = holder;
 
                 view.setTag(holder);
 
-                holder.thumbsUp.setOnClickListener(new View.OnClickListener() {
+                holder.thumbUpImage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View viewIn) {
                         try {
@@ -121,7 +121,7 @@ public class QuizListViewAdapter extends BaseAdapter {
 
 
 
-                holder.thumbsDown.setOnClickListener(new View.OnClickListener() {
+                holder.thumbDownImage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View viewIn) {
                         try {
