@@ -1,4 +1,4 @@
-package com.example.course_chat.videotutorial;
+package com.example.course_chat.videolesson;
 
 
 import android.net.Uri;
@@ -8,13 +8,13 @@ import java.util.ArrayList;
 public class Lesson {
 
     private Uri lessonUri;
-    private String name, description, dateCreated;
+    private String title, description, dateCreated;
     private Integer thumbUp, thumbDown;
     private ArrayList<Comment> comments;
 
-    public Lesson(Uri lessonUri, String name, String description, Integer thumbUp, Integer thumbDown, String dateCreated, ArrayList<Comment> comments){
+    public Lesson(Uri lessonUri, String title, String description, Integer thumbUp, Integer thumbDown, String dateCreated, ArrayList<Comment> comments){
         this.lessonUri = lessonUri;
-        this.name = name;
+        this.title = title;
         this.description = description;
         this.thumbUp = thumbUp;
         this.thumbDown = thumbDown;
@@ -30,8 +30,8 @@ public class Lesson {
         return lessonUri;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
     public String getDescription() {
