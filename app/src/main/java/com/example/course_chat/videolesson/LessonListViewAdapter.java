@@ -1,4 +1,4 @@
-package com.example.course_chat.videotutorial;
+package com.example.course_chat.videolesson;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.example.course_chat.R;
-import com.example.course_chat.vocabquiz.Vocabulary;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class LessonListViewAdapter extends BaseAdapter {
 
@@ -22,7 +22,7 @@ public class LessonListViewAdapter extends BaseAdapter {
 
     private Context mContext;
     private LayoutInflater inflater;
-    public static List<Lesson> emptyLessonList;
+    public static List<Lesson> lessonList;
     private ArrayList<Lesson> arraylist;
     public static Integer lessonID;
 
@@ -30,14 +30,14 @@ public class LessonListViewAdapter extends BaseAdapter {
 
 
 
-    public LessonListViewAdapter(Context context, List<Lesson> emptyClassList) {
+    public LessonListViewAdapter(Context context, List<Lesson> lessonList) {
         mContext = context;
 
-        this.emptyLessonList = emptyClassList;
+        this.lessonList = lessonList;
 
         inflater = LayoutInflater.from(mContext);
         this.arraylist = new ArrayList<>();
-        this.arraylist.addAll(emptyLessonList);
+        this.arraylist.addAll(lessonList);
 
 
 
@@ -59,12 +59,12 @@ public class LessonListViewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return emptyLessonList.size();
+        return lessonList.size();
     }
 
     @Override
     public Lesson getItem(int position) {
-        return emptyLessonList.get(position);
+        return lessonList.get(position);
     }
 
     @Override
@@ -120,11 +120,20 @@ public class LessonListViewAdapter extends BaseAdapter {
         return view;
     }
 
-    public void filter(){
-
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        lessonList.clear();
+        if (charText.length() == 0) {
+            lessonList.addAll(arraylist);
+        } else {
+            for (Lesson lesson : arraylist) {
+                if (lesson.getTitle().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    lessonList.add(lesson);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
-
-
 
 
 
