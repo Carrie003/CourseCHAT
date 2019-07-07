@@ -13,3 +13,5 @@ public class LessonListViewItemHolder extends AppCompatActivity {
         setContentView(R.layout.activity_lesson_list_view_item_holder);
     }
 }
+
+
