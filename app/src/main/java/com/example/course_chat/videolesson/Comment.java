@@ -1,4 +1,4 @@
-package com.example.course_chat.videotutorial;
+package com.example.course_chat.videolesson;
 
 public class Comment {
     private String content;
