@@ -1,4 +1,4 @@
-package com.example.course_chat.videotutorial;
+package com.example.course_chat.videolesson;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
