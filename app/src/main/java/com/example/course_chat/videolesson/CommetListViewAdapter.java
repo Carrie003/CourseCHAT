@@ -1,7 +1,6 @@
-package com.example.course_chat.videotutorial;
+package com.example.course_chat.videolesson;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.VideoView;
+
 import java.text.*;
 
 import com.example.course_chat.R;
-import com.example.course_chat.vocabquiz.Vocabulary;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,10 +54,12 @@ public class CommetListViewAdapter extends BaseAdapter {
     public class ViewHolder {
 
         TextView commentLabel;
-        EditText newComment;
+        EditText comment;
         Button addButton;
+//        Button submitButto
 
-        TextView comment;
+
+//        TextView comment;
         ImageView thumbUpImage;
         TextView thumbUpValue;
         ImageView thumbDownImage;
@@ -95,18 +95,18 @@ public class CommetListViewAdapter extends BaseAdapter {
             if(position == 0){
 
                 holder.commentLabel =  view.findViewById(R.id.commentLabel);
-                holder.newComment = view.findViewById(R.id.newComment);
+                holder.comment = view.findViewById(R.id.newComment);
                 holder.addButton = view.findViewById(R.id.addButton);
 
             }
             else{
-                holder.comment = view.findViewById(R.id.comment);
+//                holder.comment = view.findViewById(R.id.comment);
                 holder.thumbUpImage =  view.findViewById(R.id.thumbUpImage);
                 holder.thumbUpValue = view.findViewById(R.id.thumbUpValue);
                 holder.thumbDownImage = view.findViewById(R.id.thumbDownImage);
                 holder.thumbDownValue = view.findViewById(R.id.thumbDownValue);
 
-                holder.comment.setText(commentList.get(position+1).getContent());
+//                holder.comment.setText(commentList.get(position+1).getContent());
 
 
 
@@ -126,7 +126,7 @@ public class CommetListViewAdapter extends BaseAdapter {
             public void onClick(View v)
             {
 
-                Comment newComment = new Comment( "", "", "", 0, 0,createCurrentDate();
+                Comment newComment = new Comment( "", "", "", 0, 0,createCurrentDate());
                 commentList.add(newComment);
                 idCommentMap.put(createNewID(),newComment);
                 notifyDataSetChanged();
@@ -152,9 +152,7 @@ public class CommetListViewAdapter extends BaseAdapter {
         return view;
     }
 
-    public void filter(){
 
-    }
 
     public Integer createNewID(){
         Random ran = new Random();
