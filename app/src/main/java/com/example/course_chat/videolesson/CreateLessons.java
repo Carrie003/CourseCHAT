@@ -1,4 +1,4 @@
-package com.example.course_chat.videotutorial;
+package com.example.course_chat.videolesson;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -23,11 +23,10 @@ public class CreateLessons extends AppCompatActivity {
 
     private Uri tutorialVideoUri;
     private final int REQUEST_VIDEO_CODE =1;
-    private ArrayList<Lesson> lessons;
+    public static ArrayList<Lesson> lessons;
 
     private VideoView tutorialVideoView;
     public static ArrayList<Uri> videoUris;
-    private Integer lessonID;
     public static  Map<Integer, Lesson> IDlessonMap;
     private ArrayList<Integer> lessonIdCollection;
 
