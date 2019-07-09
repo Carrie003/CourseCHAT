@@ -11,9 +11,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.course_chat.R;
-import com.example.course_chat.main.SearchViewInterface;
+import com.example.course_chat.main.SearchInterface;
 
-public class SearchDiscussion extends AppCompatActivity implements SearchView.OnQueryTextListener, AdapterView.OnItemSelectedListener, SearchViewInterface {
+public class SearchDiscussion extends AppCompatActivity implements SearchView.OnQueryTextListener, AdapterView.OnItemSelectedListener, SearchInterface {
 
     private ListView discussionListView;
     private SearchView discussionSearchView;
