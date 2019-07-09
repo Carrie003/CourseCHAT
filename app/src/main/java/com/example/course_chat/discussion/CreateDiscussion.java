@@ -1,5 +1,6 @@
 package com.example.course_chat.discussion;
 
+import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,9 @@ import android.widget.EditText;
 
 
 import com.example.course_chat.R;
+import com.example.course_chat.main.LogIn;
+import com.example.course_chat.main.SignUp;
+import com.example.course_chat.main.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,11 +27,15 @@ public class CreateDiscussion extends AppCompatActivity {
     private EditText topicEditText;
     private EditText contentEditText;
     private Button submitButton;
-    private List<Discussion> discussionList;
-    private Map<Integer, Discussion> idDiscussionMap;
+   public static List<Discussion> discussionList;
+    public static Map<Integer, Discussion> idDiscussionMap;
     private Discussion newDiscussion;
     private String topic;
     private String content;
+    private User currentUser;
+    private Map<Integer, Discussion> userIdDiscussionMap;
+    private String  applicationId;
+
 
 
     private ArrayList<Integer> discussionIdCollection;
@@ -59,9 +67,21 @@ public class CreateDiscussion extends AppCompatActivity {
     public void submit(View view){
         topic = topicEditText.getText().toString();
         content = contentEditText.getText().toString();
-        newDiscussion = new Discussion( topic, content, 0,0, createCurrentDate(), new ArrayList<String>());
+//
+
+        PackageManager packageManager = getPackageManager();
+        try {
+            applicationId = String.valueOf(packageManager.getApplicationInfo("com.example.app", PackageManager.GET_META_DATA));
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        currentUser = LogIn.applicationUserMap.get(applicationId);
+
+        newDiscussion = new Discussion( currentUser.getUserId(),  topic, content, 0,0, createCurrentDate(), new HashMap<Integer, Reply>()); // TODO change userId and userName
         discussionList.add(newDiscussion);
         idDiscussionMap.put(createNewID(),newDiscussion);
+        userIdDiscussionMap.put(currentUser.getUserId(), newDiscussion);
     }
 
 
