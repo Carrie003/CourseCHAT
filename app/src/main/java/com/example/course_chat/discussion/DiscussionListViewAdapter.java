@@ -1,18 +1,24 @@
 package com.example.course_chat.discussion;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.course_chat.R;
+import com.example.course_chat.videolesson.Lesson;
+import com.example.course_chat.vocabquiz.BuildVocabCheckMain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class DiscussionListViewAdapter extends BaseAdapter {
@@ -23,6 +29,7 @@ public class DiscussionListViewAdapter extends BaseAdapter {
     private ArrayList<Discussion> arraylist;
     //    public static Integer lessonID;
     private Map<Integer, Discussion> idDiscussionMap;
+    public static Integer currentId;
 //    private Iterator iter;
 
 //    private ArrayList<Integer> discussionIdCollection;
@@ -31,20 +38,20 @@ public class DiscussionListViewAdapter extends BaseAdapter {
 
 
 
-    public DiscussionListViewAdapter(Context context, Map<Integer, Discussion> idDiscussionMap) {
+    public DiscussionListViewAdapter(Context context, List<Discussion> discussionList) {
         mContext = context;
 
-        this.idDiscussionMap = idDiscussionMap;
-//        this.discussionList = discussionList;
+//        this.idDiscussionMap = idDiscussionMap;
+        this.discussionList = discussionList;
 
         inflater = LayoutInflater.from(mContext);
         this.arraylist = new ArrayList<>();
 
 
-        for(Integer id: idDiscussionMap.keySet()){
-
-            discussionList.add(idDiscussionMap.get(id));
-        }
+//        for(Integer id: idDiscussionMap.keySet()){
+//
+//            discussionList.add(idDiscussionMap.get(id));
+//        }
         this.arraylist.addAll(discussionList);
 
 
@@ -76,6 +83,9 @@ public class DiscussionListViewAdapter extends BaseAdapter {
 
         TextView dateLabel;
         TextView date;
+
+        Button viewDiscussionButton;
+
 //
 //        Button addButton;
 //        Button submitButton;
@@ -124,10 +134,16 @@ public class DiscussionListViewAdapter extends BaseAdapter {
                 holder.thumbUpImage =  view.findViewById(R.id.thumbUpImage);
                 holder.thumbUpValue = view.findViewById(R.id.thumbUpValue);
                 holder.thumbDownImage = view.findViewById(R.id.thumbDownImage);
+
+
                 holder.thumbDownValue = view.findViewById(R.id.thumbDownValue);
+                holder.dateLabel = view.findViewById(R.id.dateLabel);
+            holder.date = view.findViewById(R.id.date);
+            holder.viewDiscussionButton =  view.findViewById(R.id.viewDiscussionButton);
 
 
                 Integer id = idDiscussionMap.keySet().iterator().next();
+
                 holder.id.setText(id);
                 holder.topic.setText(idDiscussionMap.get(id).getTopic());
                 holder.content.setText(idDiscussionMap.get(id).getContent());
@@ -211,10 +227,53 @@ public class DiscussionListViewAdapter extends BaseAdapter {
        });
 
 
+       holder.viewDiscussionButton.setOnClickListener(new View.OnClickListener()
+       {
+           @Override
+           public void onClick(View v)
+           {
+
+//               Integer originalValue = Integer.valueOf(holder.thumbDownValue.getText().toString());
+//
+//               Integer newValue = ++originalValue;
+//               holder.thumbDownValue.setText(newValue);
+//
+//               idDiscussionMap.get(holder.id).setThumbDown(newValue);
+
+               currentId = Integer.parseInt(holder.id.getText().toString());
+               Intent viewDiscussionIntent = new Intent(mContext.getApplicationContext(), ViewDiscussion.class);
+               mContext.startActivity(viewDiscussionIntent);
 
 
 
-        return view;
+
+           }
+       });
+
+
+
+
+
+
+
+
+
+       return view;
+    }
+
+    public void filter(String charText) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        discussionList.clear();
+        if (charText.length() == 0) {
+            discussionList.addAll(arraylist);
+        } else {
+            for (Discussion discussion : arraylist) {
+                if (discussion.getTopic().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    discussionList.add(discussion);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
 
