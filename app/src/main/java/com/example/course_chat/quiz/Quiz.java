@@ -1,25 +1,32 @@
 package com.example.course_chat.quiz;
+import com.example.course_chat.main.User;
+
 import java.util.ArrayList;
 
 public class Quiz {
-    String user, description, dateCreated;
-    Integer difficulty, thumbUp, thumbDown;
-    ArrayList<String> questionList, answerList;
+    private User user;
+    private String title;
+    private String subject;
+    private String  description;
+    private String  dateCreated;
+    private Integer difficulty, thumbUp, thumbDown;
+    private ArrayList<String> questionList, answerList;
 
-    public Quiz(String user, ArrayList<String>  questionList, ArrayList<String> answerList, Integer difficulty, String description,  Integer thumbUp, Integer thumbDown, String dateCreated){
+    public Quiz(User user, String title, String subject, Integer difficulty, ArrayList<String>  questionList, ArrayList<String> answerList , String description,  Integer thumbUp, Integer thumbDown, String dateCreated){
         this.user = user;
+        this.title = title;
+        this.subject = subject;
+        this.difficulty = difficulty;
         this.description = description;
-//        this.quizID = quizID;
         this.questionList = questionList;
         this.answerList = answerList;
-        this.difficulty = difficulty;
         this.thumbUp = thumbUp;
         this.thumbDown = thumbDown;
         this.dateCreated = dateCreated;
 
 
     }
-    public String getUser(){
+    public User getUser(){
         return user;
     }
 //    public Integer getQuizID(){
