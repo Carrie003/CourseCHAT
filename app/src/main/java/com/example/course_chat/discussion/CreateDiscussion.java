@@ -10,7 +10,6 @@ import android.widget.EditText;
 
 import com.example.course_chat.R;
 import com.example.course_chat.main.LogIn;
-import com.example.course_chat.main.SignUp;
 import com.example.course_chat.main.User;
 
 import java.text.SimpleDateFormat;
@@ -33,7 +32,7 @@ public class CreateDiscussion extends AppCompatActivity {
     private String topic;
     private String content;
     private User currentUser;
-    private Map<Integer, Discussion> userIdDiscussionMap;
+    private Map<User, Discussion> userDiscussionMap;
     private String  applicationId;
 
 
@@ -44,7 +43,7 @@ public class CreateDiscussion extends AppCompatActivity {
     public CreateDiscussion(){
         topicEditText = findViewById(R.id.topicEditText);
         contentEditText = findViewById(R.id.contentEditText);
-        submitButton = findViewById(R.id.submitButton);
+        submitButton = findViewById(R.id.addQuizButton);
         discussionList = new ArrayList<>();
         idDiscussionMap = new HashMap<>();
         discussionIdCollection = new ArrayList<>();
@@ -78,10 +77,10 @@ public class CreateDiscussion extends AppCompatActivity {
 
         currentUser = LogIn.applicationUserMap.get(applicationId);
 
-        newDiscussion = new Discussion( currentUser.getUserId(),  topic, content, 0,0, createCurrentDate(), new HashMap<Integer, Reply>()); // TODO change userId and userName
+        newDiscussion = new Discussion( currentUser,  topic, content, 0,0, createCurrentDate(), new HashMap<Integer, Reply>());
         discussionList.add(newDiscussion);
         idDiscussionMap.put(createNewID(),newDiscussion);
-        userIdDiscussionMap.put(currentUser.getUserId(), newDiscussion);
+        userDiscussionMap.put(currentUser, newDiscussion);
     }
 
 
