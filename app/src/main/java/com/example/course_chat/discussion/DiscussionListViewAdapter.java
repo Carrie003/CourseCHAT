@@ -13,8 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.course_chat.R;
-import com.example.course_chat.videolesson.Lesson;
-import com.example.course_chat.vocabquiz.BuildVocabCheckMain;
+
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class DiscussionListViewAdapter extends BaseAdapter {
 
     private Context mContext;
     private LayoutInflater inflater;
-    private List<Discussion> discussionList;
+    public static List<Discussion> discussionList;
     private ArrayList<Discussion> arraylist;
     //    public static Integer lessonID;
     private Map<Integer, Discussion> idDiscussionMap;
