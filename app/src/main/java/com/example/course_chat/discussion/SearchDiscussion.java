@@ -8,10 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.course_chat.R;
-import com.example.course_chat.main.SearchInterface;
+import com.example.course_chat.interfaces.SearchInterface;
+
+import java.util.Collections;
+import java.util.List;
 
 public class SearchDiscussion extends AppCompatActivity implements SearchView.OnQueryTextListener, AdapterView.OnItemSelectedListener, SearchInterface {
 
@@ -43,7 +45,7 @@ public class SearchDiscussion extends AppCompatActivity implements SearchView.On
 
         setUpSearchViews();
         setUpSortingSpinner();
-        j =0;
+        j =1;
     }
 
 
@@ -92,11 +94,43 @@ public class SearchDiscussion extends AppCompatActivity implements SearchView.On
         sortingCategory= parent.getItemAtPosition(position).toString();
 //        languageList.add(language);
         if(j<=0){
-            Toast.makeText(this, "Language "+sortingCategory+" selected",Toast.LENGTH_SHORT).show();
+
+            if(position == 1){
+                adapter = new DiscussionListViewAdapter(this, getSortedListByVotes());
+
+                discussionListView.setAdapter(adapter);
+
+            }
+
+            else if(position == 2){
+                adapter = new DiscussionListViewAdapter(this, getSortedListByCommentsOrReplies());
+
+                discussionListView.setAdapter(adapter);
+
+            }
+
+
+
+
+
         }
         j--;
 
     }
+
+    @Override
+    public List<Discussion> getSortedListByVotes() {
+        Collections.sort(adapter.discussionList, Discussion.voteComparator);
+        return adapter.discussionList;
+    }
+
+//    @Override
+    public List<Discussion> getSortedListByCommentsOrReplies() {
+        Collections.sort(adapter.discussionList, Discussion.ReplyComparator);
+        return adapter.discussionList;
+    }
+
+
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
