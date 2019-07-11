@@ -112,11 +112,11 @@ public class DoVocabCheckFunMode extends AppCompatActivity {
 
     public void initializeUI(){
         for (int i= 0; i<vocabNames.size(); i++){
-            RelativeLayout layout = new RelativeLayout(this);
+//            RelativeLayout layout = new RelativeLayout(this);
             RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(
                     LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
-            RelativeLayout rl =  findViewById(R.id.rl);
+            RelativeLayout vcrl =  findViewById(R.id.vcrl);
 
 //            Display display = getWindowManager().getDefaultDisplay();
 //            Point size = new Point();
@@ -148,8 +148,8 @@ public class DoVocabCheckFunMode extends AppCompatActivity {
             vocabName.setY(positionY);
             vocabMeaning.setX(vocabMeaningPositionX);
             vocabMeaning.setY(positionY);
-            rl.addView(vocabName);
-            rl.addView(vocabMeaning);
+            vcrl.addView(vocabName);
+            vcrl.addView(vocabMeaning);
 
 
             vocabName.setOnClickListener(new View.OnClickListener()
