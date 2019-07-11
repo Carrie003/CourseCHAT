@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.course_chat.R;
-import com.example.course_chat.vocabquiz.BuildVocabCheckMain;
+
 
 import java.util.HashMap;
 import java.util.Map;
