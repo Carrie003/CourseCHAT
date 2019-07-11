@@ -89,7 +89,7 @@ public class QuizQuestionListViewAdapter extends BaseAdapter {
             holder.question = view.findViewById(R.id.question);
             holder.aLabel = view.findViewById(R.id.aLabel);
             holder.answer = view.findViewById(R.id.answer);
-            holder.submitButton = view.findViewById(R.id.submitButton);
+            holder.submitButton = view.findViewById(R.id.addQuizButton);
             holder.addButton = view.findViewById(R.id.addButton);
             view.setTag(holder);
 
