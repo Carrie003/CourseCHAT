@@ -57,11 +57,13 @@ public class MainActivity extends AppCompatActivity {
     private Button logInButton;
     private Button signUpButton;
 
+
     // Declare Variables
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         logInButton = findViewById(R.id.logInBtn);
         signUpButton = findViewById(R.id.signUpBtn);
 //        setContentView(R.layout.activity_main);
