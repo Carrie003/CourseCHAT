@@ -4,6 +4,8 @@ package com.example.course_chat.discussion;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import com.example.course_chat.main.User;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Map;
@@ -12,7 +14,9 @@ public class Discussion {
 
 //    private Integer id;
 
-   private Integer  userId;
+
+   private User  user;
+
     private String topic;
     private String content;
     private Integer thumbUp;
@@ -22,10 +26,10 @@ public class Discussion {
 
 
 
-    public Discussion(Integer userId, String topic, String content, Integer thumbUp, Integer thumbDown, String dateCreated,  Map<Integer, Reply> idReplyMap){
+    public Discussion(User user, String topic, String content, Integer thumbUp, Integer thumbDown, String dateCreated,  Map<Integer, Reply> idReplyMap){
 
 
-      this.userId = userId;
+      this.user = user;
         this.topic = topic;
         this.content = content;
         this.thumbUp = thumbUp;
@@ -35,8 +39,8 @@ public class Discussion {
 
     }
 
-    public Integer getUserId() {
-        return userId;
+    public User  getUserId() {
+        return user;
     }
 
     public String getTopic() {
@@ -72,7 +76,7 @@ public class Discussion {
     }
 
 
-    public static Comparator<Discussion> thumbUpComparator = new Comparator<Discussion>() {
+    public static Comparator<Discussion> voteComparator = new Comparator<Discussion>() {
         @Override
         public int compare(Discussion d1, Discussion d2) {
             return (d1.getThumbUp().compareTo(d2.getThumbUp()));
