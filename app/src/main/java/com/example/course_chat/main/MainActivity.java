@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.*;
 import android.widget.Spinner;
 
-import com.example.course_chat.vocabquiz.BuildVocabCheckMain;
+
 import com.example.course_chat.quiz.DoQuiz;
 
 import com.example.course_chat.quiz.Quiz;
