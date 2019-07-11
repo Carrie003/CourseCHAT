@@ -82,7 +82,7 @@ public class VocabCheckListViewAdapter extends BaseAdapter {
             holder.meaningLabel= view.findViewById(R.id.meaningLabel);
             holder.vocab = view.findViewById(R.id.vocab);
             holder.meaning = view.findViewById(R.id.meaning);
-            holder.submitButton = view.findViewById(R.id.submitButton);
+            holder.submitButton = view.findViewById(R.id.addQuizButton);
             holder.addButton = view.findViewById(R.id.addButton);
 
             view.setTag(holder);
@@ -96,6 +96,7 @@ public class VocabCheckListViewAdapter extends BaseAdapter {
             @Override
             public void onClick(View viewIn) {
                 try {
+
 
                     String newVocabName = holder.vocab.getText().toString();
                     String newMeaning = holder.meaning.getText().toString();
