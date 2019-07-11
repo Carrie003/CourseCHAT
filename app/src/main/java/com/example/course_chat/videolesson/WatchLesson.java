@@ -38,8 +38,9 @@ public class WatchLesson extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watch_lesson);
-        setUpLessonUI();
+        setUpLessonViews();
 
+        setUpCommentViews();
 
 
     }
@@ -64,7 +65,7 @@ public class WatchLesson extends AppCompatActivity {
 //    }
 
 
-    public void  setUpLessonUI(){
+    public void setUpLessonViews(){
         try {
 
             lessonMedia = new MediaController(this);
@@ -81,7 +82,7 @@ public class WatchLesson extends AppCompatActivity {
         }
     }
 
-    public void setUpCommentUI(){
+    public void setUpCommentViews(){
 
         commentListView = findViewById(R.id.commentListView);
         commentAdapter = new CommetListViewAdapter(this, commentArrayList);
