@@ -5,21 +5,25 @@ import android.net.Uri;
 
 public class User {
 
-    private Integer userId;
-    private Uri userImageUri;
+//    private Integer userId;
+
     private String userName;
     private String password;
+    private Uri userImageUri;
+    private String dateSignedUp;
     //TODO add more user features
-    public User(Integer userId, Uri userImageUri, String userName, String password){
-        this.userId = userId;
-        this.userImageUri = userImageUri;
+    public User( String userName, String password, Uri userImageUri, String dateSignedUp){
+//        this.userId = userId;
+
         this.userName = userName;
         this.password = password;
+        this.userImageUri = userImageUri;
+        this.dateSignedUp = dateSignedUp;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
+//    public Integer getUserId() {
+//        return userId;
+//    }
 
     public Uri getUserIamgeUri() {
         return userImageUri;
@@ -30,6 +34,7 @@ public class User {
     }
 
 
-
-
+    public String getPassword() {
+        return password;
+    }
 }
